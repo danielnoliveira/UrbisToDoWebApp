@@ -1,0 +1,9 @@
+{
+  "name": "todo_urbis",
+  "version": "1.0.0",
+  "description": "Backend para gerenciar informações de um sistema de todo list",
+  "main": "index.js",
+  "author": "Daniel Nogueira de Oliveira",
+  "license": "MIT",
+  "private": true
+}
