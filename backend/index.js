@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const {errors} = require('celebrate');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get('/',(req,res) => {
 
 app.use('/',routes(router));
 
+app.use(errors());
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("Servidor iniciado!!!");
