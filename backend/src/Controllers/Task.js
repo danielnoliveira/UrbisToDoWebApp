@@ -1,12 +1,12 @@
 const Task = require('../Database/Models/Task');
-const User = require('../Database/Models/User');
+
 module.exports = {
-    getList: async (req,res) => {
+    getTasks: async (req,res) => {
         const {userId} = req; 
         const result = await Task.findAll({where:{id_user:userId}});
         res.json(result);
     },
-    createItem: async (req,res) => {
+    createTask: async (req,res) => {
         const {name} = req.body;
         const {userId} = req;
         const task = await Task.create({
@@ -15,7 +15,7 @@ module.exports = {
         },);
         res.json(task);
     },
-    updateItem: async (req,res) => {
+    updateTask: async (req,res) => {
         const {name,concluded,id_task} = req.body;
         const {userId} = req;
         const task = await Task.update({
@@ -29,7 +29,7 @@ module.exports = {
         });
         res.json(task);
     },
-    deleteItem: async (req,res) => {
+    deleteTask: async (req,res) => {
         const {id_task} = req.body;
         const task = await Task.destroy({where:{id:id_task}});
         res.json(task);

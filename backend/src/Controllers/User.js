@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const User = require('./../Database/Models/User');
 module.exports = {
-    login: async (req,res) => {
-        const {login,password} = req.body;
+    signin: async (req,res) => {
+        const {email,password} = req.body;
         const user = await User.findOne({where:{
-            email:login,
+            email,
             password,
         }});
         if(user){
@@ -15,5 +15,8 @@ module.exports = {
             return res.json({auth: true, token});
         }
         res.status(500).json({msg:"Login invalido!"});
+    },
+    signup: async (req,res) => {
+
     }
 }
