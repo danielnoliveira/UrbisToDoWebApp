@@ -9,14 +9,6 @@ const {errors} = require('celebrate');
     try{
         const resultado =  await database.sync();
         console.log(resultado?"Database conectado e sincronizado!!!":"Algo errado, SOCORRO!!!!");
-        const User = require('./src/Database/Models/User');
-        await User.sync();
-        const user = await User.create({
-            name: "Daniel Nogueira",
-            email: "dan@hotmail.com",
-            password: "paodequeijo",
-        });
-        console.log(user);
     }catch(err){
         console.log(err);
     }
