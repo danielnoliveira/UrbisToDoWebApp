@@ -17,7 +17,13 @@
     <li>
         NodeJS
         <ul>
-            <li></li>
+            <li>express</li>
+            <li>cors</li>
+            <li>dotenv</li>
+            <li>jsonwebtoken</li>
+            <li>pg</li>
+            <li>pg-hstore</li>
+            <li>sequelize</li>
         </ul>
     </li>
 
