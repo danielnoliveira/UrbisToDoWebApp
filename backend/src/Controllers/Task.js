@@ -3,7 +3,7 @@ const Task = require('../Database/Models/Task');
 module.exports = {
     getTasks: async (req,res) => {
         const {userId} = req; 
-        const result = await Task.findAll({where:{id_user:userId}});
+        const result = await Task.findAll({where:{id_user:userId, concluded: false}});
         res.json(result);
     },
     createTask: async (req,res) => {
