@@ -17,6 +17,13 @@ module.exports = {
         res.status(500).json({msg:"Login invalido!"});
     },
     signup: async (req,res) => {
+        const {email,password, name} = req.body;
+        try{
+            const user = await User.create({email,name,password});
+            return res.json({msg: "Usuario cadastrado com sucesso!!!"});
 
+        }catch(error){
+            res.status(500).json({msg:"Usuario ja cadastrado, utilize outro email!"});
+        }
     }
 }
