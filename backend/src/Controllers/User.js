@@ -8,11 +8,11 @@ module.exports = {
             password,
         }});
         if(user){
-            const {id} = user;
+            const {id,name} = user;
             const token = jwt.sign({id}, process.env.SECRET, {
                 expiresIn:120,
             });
-            return res.json({auth: true, token});
+            return res.json({auth: true, token, name});
         }
         res.status(500).json({msg:"Login invalido!"});
     },
