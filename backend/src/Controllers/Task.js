@@ -17,21 +17,16 @@ module.exports = {
     },
     updateTask: async (req,res) => {
         const {name,concluded,id_task} = req.body;
-        const {userId} = req;
-        const task = await Task.update({
-            name,
-            concluded, 
-        },{
-            where:{
-                id_user:userId,
-                id:id_task
-            }
-        });
+        const task = await Task.findByPk(id_task);
+        task.name = name;
+        task.concluded = concluded;
+        await task.save();
         res.json(task);
     },
     deleteTask: async (req,res) => {
         const {id_task} = req.body;
-        const task = await Task.destroy({where:{id:id_task}});
+        const task = await Task.findByPk(id_task);
+        await task.destroy();
         res.json(task);
     }
 }

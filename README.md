@@ -11,7 +11,9 @@
     <li>
         ReactJS
         <ul>
-            <li></li>
+            <li>react-router-dom</li>
+            <li>axios</li>
+            <li>styled-components</li>
         </ul>
     </li>
     <li>
@@ -29,22 +31,6 @@
 
 </ul>
 
-## Requisitos
-
-<ul>
-    <li>
-        Front-end
-        <ul>
-            <li></li>
-        </ul>
-    </li>
-    <li>
-        Back-end
-        <ul>
-            <li></li>
-        </ul>
-    </li>
-</ul>
 
 ## Instalação e Iniciando a aplicação
 

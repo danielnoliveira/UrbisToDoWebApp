@@ -21,6 +21,6 @@ function jwtAuthetication(req,res,next){
 module.exports = (router) => {
     router.route('/list/items').get(jwtAuthetication,TaskController.getTasks);
     router.route('/list/item/create').post(jwtAuthetication,celebrate(createTask),TaskController.createTask);
-    router.route('/list/item/update').put(jwtAuthetication,celebrate(updateTask),TaskController.updateTask);
+    router.route('/list/item/update').post(jwtAuthetication,celebrate(updateTask),TaskController.updateTask);
     router.route('/list/item/delete').delete(jwtAuthetication,celebrate(deleteTask),TaskController.deleteTask);
 }
