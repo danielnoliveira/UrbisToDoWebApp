@@ -30,12 +30,3 @@
     </li>
 
 </ul>
-
-
-## Instalação e Iniciando a aplicação
-
-### Instalação
-<code>yarn i</code>
-
-### Iniciando servidor
-<code>yarn start</code>
