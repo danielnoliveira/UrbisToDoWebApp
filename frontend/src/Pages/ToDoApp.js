@@ -9,7 +9,7 @@ import Task from './Components/Task';
 
 function ToDoApp({ history }) {
     const [tasks, setTasks] = useState([]);
-    const [task, setTask] = useState([]);
+    const [task, setTask] = useState('');
 
     const getTasks = async () => {
         try {
@@ -38,6 +38,10 @@ function ToDoApp({ history }) {
             alert('Algo deu errado');
         }
     }
+    const deleteMyTask = (task_id) => {
+        const newTasks = tasks.filter(t => t.id !== task_id);
+        setTasks([...newTasks]);
+    };
     const validateForm = _ => task.length > 0; 
     return (
         <Main>
@@ -54,7 +58,7 @@ function ToDoApp({ history }) {
                     <h2>Suas tarefas</h2>
                     <ul>
                         {tasks.map(task => {
-                            return (<Task task={task} reloadTasks={getTasks}/>
+                            return (<Task task={task} deleteMyTask={deleteMyTask}/>
                             );
                         })}
                     </ul>

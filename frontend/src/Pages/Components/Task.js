@@ -3,7 +3,7 @@ import api from '../../Services/api';
 import {ButtonsTask,TaskName} from '../../Styles/main.style';
 
 
-export default function Task({task,reloadTasks}) {
+export default function Task({task, deleteMyTask}) {
     const [concluded, setConcluded] = useState(false);
 
     const finishTask = async _ => {
@@ -20,7 +20,7 @@ export default function Task({task,reloadTasks}) {
             id_task: task.id,
         }});
         result.status !== 200 && alert("Algo deu errado!!!");
-        reloadTasks();
+        deleteMyTask(task.id);
     }
     return (
         <li key={task.id}>
