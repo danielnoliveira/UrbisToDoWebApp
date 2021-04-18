@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require('./../Database/Models/User');
 module.exports = {
     signin: async (req,res) => {
+        // #swagger.tags = ['User']
         const {email,password} = req.body;
         const user = await User.findOne({where:{
             email,
@@ -17,6 +18,7 @@ module.exports = {
         res.status(500).json({msg:"Login invalido!"});
     },
     signup: async (req,res) => {
+        // #swagger.tags = ['User']
         const {email,password, name} = req.body;
         try{
             const user = await User.create({email,name,password});
